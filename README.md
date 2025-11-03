@@ -33,7 +33,7 @@ There is No deployment - No dependency management - No external tooling required
 
 Workbench App <a href="https://wbapp.iqbserve.de" target="_blank">Demo</a>
 <br>
-<img src="https://github.com/user-attachments/assets/e2fe7d5b-015f-467d-b1dc-c9e6f37d35fd" width="600" height="400"></br>   
+<img src="https://github.com/user-attachments/assets/70dfb413-e8c4-47e8-9b62-aefbfc2f494d" width="600" height="400"></br>   
 
 <br></br>
 ## Disclamer  
