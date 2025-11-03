@@ -1,0 +1,60 @@
+<!--jamn.web.template-->
+
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+	<meta charset="UTF-8">
+	<!--title is injected by the server file provider-->
+	<title>${app.title}}</title>
+	<link rel="stylesheet" href="css/app.css" type="text/css" />
+
+	<script type="importmap">
+	{
+	    "imports": {
+	        "sample-app": "/jsmod/sample-app.mjs"
+	    }
+	}
+	</script>
+
+	<script type="module">
+		import {anchorAt} from 'sample-app';
+		anchorAt("approot");
+	</script>
+
+</head>
+
+<body>
+<!--the approot is hidden by default - it gets visible from sample-app-->
+<div id="approot" class="site-container" >
+	<div class="border-layout">
+	    <div class="top header">
+			<wintitle class="vrel-center" style="text-align: center; color: var(--wintitle);">App Info</wintitle>
+	    </div>
+	    <div class="middle workarea">
+			<div class="workarea-left side border-layout" >
+				<div class="vrel-center h-center">
+					<img src="images/app-logo.png" title="App Logo" alt="app-logo" width="48px" height="48px" />
+				</div>
+			</div>
+			<div class="center workarea-center">
+				<div class="vrel-center" >
+					<!--this elements are set by the app-->
+					<proplb>Name:</proplb><propval id="server.name"></propval></br>
+					<proplb>Version:</proplb><propval id="server.version"></propval></br>
+					<proplb>Description:</proplb><propval id="server.description"></propval></br>
+				</div>
+			</div>
+			<div class="workarea-right side border-layout"></div>
+	    </div>
+	    <div class="bottom footer">
+			<div class="status-bar">
+				<div class="status-part" style="border: none; width: 10%; float: right; display:flex; justify-content: center;">
+					<a id="app.scm" target="_blank"><img src="images/github.png" title="GitHub Source" alt="github-logo" width="18px" height="18px"></a>
+				</div>
+			</div>			
+	    </div>
+	</div>
+</div></body>
+
+</html>

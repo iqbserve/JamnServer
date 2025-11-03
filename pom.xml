@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.isa</groupId>
+	<artifactId>org.isa.JamnServerProject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+	<name>JamnServer Project</name>
+	<description>Just Another Micro Node Server.</description>
+	<url>https://github.com/integrating-architecture/JamnServer</url>
+
+	<properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<modules>
+		<module>org.isa.ipc.JamnServer</module>
+		<module>org.isa.ipc.JamnWebContentProvider</module>
+		<module>org.isa.ipc.JamnWebServiceProvider</module>
+		<module>org.isa.ipc.JamnWebSocketProvider</module>
+		<module>org.isa.jps.JavaScriptProvider</module>
+		<module>org.isa.jps.JamnPersonalServerApp</module>
+	</modules>
+
+</project>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test</title>
+	
+	<style>
+	    html,
+	    body {
+	        height: 100%;
+	        margin: 0;
+	        padding: 0 0 0 20px;
+	        width: 100%;
+	        font-family: sans-serif;
+	        background-color: lightgray;
+	    }
+	</style>
+</head>
+
+<body>
+    <h3 id="headline">Jamn WebSocket Example []</h3>
+    <label>Send Message to Server:</label> <input type="text" id="serverUrl" value="ws://localhost:8099/wsoapi" style="width: 200px;"><br><br>
+    <label style="font-size: 12px;">Use console to check for errors</label>
+    
+    <div class="container" style="margin: 20px;">
+        <input type="text" id="messageInput">
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="connect()">Connect</button>
+        <button onclick="disconnect()">Disconnect</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // Create a WebSocket instance
+        // and connect to the server
+        socket = null;
+
+        function connect() {
+            if (socket == null || socket.readyState == WebSocket.CLOSED) {
+                const url = serverUrl.value
+                socket = new WebSocket(url);
+
+                // Event listener 
+                socket.onopen = function (event) {
+                    document.getElementById('headline').innerHTML = "Jamn WebSocket Example [Connected to Server]";
+                    document.getElementById('output').innerHTML = "<p></p>";
+                };
+
+                socket.onmessage = function (event) {
+                    document.getElementById('output').innerHTML += `<p>Received: <b>"${event.data}"</b></p>`;
+                };
+
+                socket.onclose = function (event) {
+                    document.getElementById('headline').innerHTML = "Jamn WebSocket Example [NOT connected]";
+                    document.getElementById('output').innerHTML = "<p></p>";
+                };
+
+                socket.onerror = function (event) {
+                    document.getElementById('output').innerHTML = `<p>Error-Code: ${event.code}</p>`;
+                }
+            }
+        }
+
+        function disconnect() {
+            if (socket !== null && socket.readyState !== WebSocket.CLOSED) {
+                socket.close();
+            }
+        }
+
+        // send a message to the WebSocket server
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value;
+            socket.send(message);
+        }
+    </script>
+</body>
+
+</html>

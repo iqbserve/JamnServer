@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+	<title>JamnServer Test Site</title>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0 0 0 20px;
+        width: 100%;
+        font-family: sans-serif;
+        background-color: lightgray;
+    }
+</style>
+</head>
+
+<body style="font-family: sans-serif">
+	<h3>JS-Fetch basic GET url call.</h3>
+	<p id="request"></p>
+	<p id="response"></p>
+	<script>
+		//CHANGE to YOUR PORT here
+		const url = "http://localhost:8099/api/about";
+
+		let request = `NO arguments used - URL: <a href=${url}>${url}</a>`;
+
+		async function fetchServerData() {
+			let data = "";
+
+			try {
+				const response = await fetch(url, {
+					method: "GET",
+					accept: "application/json",
+					headers: { "Content-Type": "application/json" },
+					mode: "cors" // required for localhost communication via js fetch
+				})
+
+				if (!response.ok) {
+					throw new Error(`Response status: ${response.status}`);
+				}
+
+				data = await response.text();
+
+			} catch (error) {
+				data = error.message;
+			}
+			return data;
+		}
+
+		function processReturnData(data) {
+			console.log(typeof data + "[" + data + "]");
+			document.getElementById("request").innerHTML = "Request:<br/> " + request;
+			document.getElementById("response").innerHTML = "Response:<br/> " + data;
+		}
+
+		fetchServerData().then((data) => processReturnData(data));
+
+	</script>
+</body>
+
+</html>

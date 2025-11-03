@@ -1,0 +1,110 @@
+/**
+ * the css for the login.mjs component
+ */
+:root {
+    --login-site-bg: #c3c3c3;
+    --login-input-fg: #1f1f1f;
+    --login-input-bg: #f8f8f8;
+    --login-input-focus: #4493f8;
+    --login-label-fg: #1f1f1f;
+    --login-label-bg: #f8f8f8d8;
+
+    --login-placeholder-fg: #6c6c6c;
+
+    --login-button-border: var(--cmd-button-border);
+    --login-button-fg: var(--cmd-button-text);
+    --login-button-light-fg: var(--text-light-gray);
+    --login-button-bg: #1f883d;
+}
+
+.login-view {
+    display: block;
+    position: relative;
+    width: 300px;
+    padding: 30px;
+    user-select: none;
+}
+
+.login-view-row {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.login-label {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--login-label-bg);
+    color: var(--login-label-fg);
+    cursor: pointer;
+}
+
+.login-input {
+    flex: 1;
+    padding: 15px;
+    border: 0;
+    border-bottom: 2px solid var(--login-input-bg);
+    color: var(--login-input-fg);
+    font-size: 1em;
+    height: 10px;
+}
+
+.login-input:focus {
+    outline: none;
+    border-bottom: 2px solid var(--login-input-focus);
+}
+
+.login-view-button-row {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.login-button {
+    display: block;
+    width: 100%;
+    height: 40px;
+
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid var(--login-button-border);
+    color: var(--login-button-fg);
+    background-color: var(--login-button-bg);
+    font-size: 1.2em;
+    padding: 0;
+}
+
+.login-button:hover {
+    color: var(--login-button-light-fg);
+    border-color: #8A9A5B;
+}
+
+.login-button:active {
+    transform: translateY(1px);
+}
+
+::placeholder {
+    color: var(--login-placeholder-fg);
+}
+
+.login-view-message-row {
+    display: none;
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    padding: 10px;
+    border-left: solid 4px red;
+    user-select: text;
+}
+
+.login-show-password-icon{
+    align-content: center; 
+    width: 0px; 
+    position: relative; 
+    left: -25px;
+    cursor: pointer;
+}
+

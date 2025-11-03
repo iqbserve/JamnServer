@@ -1,0 +1,2 @@
+
+curl -i -X POST -H "Content-Type: application/json" -d "{\"subjects\":[\"name\",\"version\",\"provider\"]}" http://localhost:8099/api/server/get-details

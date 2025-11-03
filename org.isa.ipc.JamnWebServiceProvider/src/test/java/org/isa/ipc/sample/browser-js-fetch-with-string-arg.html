@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+	<title>JamnServer Test Site</title>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0 0 0 20px;
+        width: 100%;
+        font-family: sans-serif;
+        background-color: lightgray;
+    }
+</style>
+</head>
+
+<body style="font-family: sans-serif">
+	<h3>JS-Fetch with String request argument.</h3>
+	<p id="request"></p>
+	<p id="response"></p>
+	<script>
+		//CHANGE to YOUR PORT here
+		const url = "http://localhost:8099/api/echo";
+
+		let request = "Hello JamnServer";
+		let i = 0;
+		let line = "";
+
+		async function fetchServerData() {
+			let data = "";
+
+			try {
+				const response = await fetch(url, {
+					method: "POST",
+					accept: "text/plain",
+					headers: { "Content-Type": "text/plain" },
+					mode: "cors", // required for localhost communication via js fetch
+					body: request
+				})
+
+				if (!response.ok) {
+					throw new Error(`Response status: ${response.status}`);
+				}
+
+				data = await response.text();
+
+			} catch (error) {
+				data = error.message;
+			}
+			return data;
+		}
+
+		function processReturnData(data) {
+			line = line + data + "<br/>";
+			console.log(typeof data + "[" + data + "]");
+			document.getElementById("request").innerHTML = "Request:<br/> " + request;
+			document.getElementById("response").innerHTML = "Response(s):<br/> " + line;
+		}
+
+		line = "";
+		for (i = 0; i < 1; i++) {
+			fetchServerData().then((data) => processReturnData(data));
+		}
+
+	</script>
+</body>
+
+</html>

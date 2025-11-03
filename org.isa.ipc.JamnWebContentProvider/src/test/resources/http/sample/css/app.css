@@ -1,0 +1,147 @@
+
+:root {
+	--site-bg: #e9e9e9;
+	--workarea-bg: #1e1e1e;
+	--site-container-bg: var(--workarea-bg);
+	--border-gray: #6c6c6c;
+	--header-bg: #393939;
+	--footer-bg: #393939;
+	--text-gray: #c3c3c3;
+	--text-light-gray: #f8f8f8;
+	--wintitle: #c3c3c3;
+}
+
+html,
+body {
+    font-family: sans-serif;
+	background-color: var(--site-bg);
+	color: var(--text-gray);
+}
+
+.site-container {
+	width:500px;
+	margin:0 auto;
+	margin-top: 40px;
+	border:1px solid var(--border-gray);
+	box-shadow:0 2px 7px #292929;
+	background-color: var(--site-container-bg);
+	visibility: hidden;
+}
+
+.header {
+	background-color: var(--header-bg);
+	max-height: 50px;
+	min-height: 50px;
+}
+
+.workarea {
+	height: 250px;
+}
+
+.workarea-left {
+	background-color: var(--workarea-bg);
+	min-width: 100px; 
+	max-width: 100px; 
+	margin-left: 0px;
+	margin-right: 0px;
+	border-right: 1px solid var(--border-gray);
+	
+}
+
+.workarea-center {
+	background-color: var(--workarea-bg);
+	padding-left: 20px;
+}
+
+.workarea-right {
+	background-color: var(--workarea-bg);
+	min-width: 20px; 
+	max-width: 20px; 
+}
+
+.footer {
+	background-color: var(--footer-bg);
+	max-height: 25px;
+	min-height: 25px;	
+}
+
+.vrel-center {
+	position: relative;
+	top: 25%;
+	transform: translate(0, -25%);	
+}
+
+.h-center {
+	display: flex;
+	justify-content: center;
+
+}
+
+.status-bar {
+	padding-top: 1px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.status-part {
+	padding-top: 1px;
+	border: 1px solid var(--border-gray);
+}
+
+wintitle {
+	display: block;
+	font-size: 1.17em;
+	font-weight: 300;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+}
+
+proplb {
+	display: inline-block;
+	font-size: 1.0em;
+	font-weight: 300;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	color: var(--text-gray);
+}
+
+propval {
+	font-size: 1.0em;
+	font-weight: 300;
+	text-align: justify;
+	color: var(--text-light-gray);
+}
+
+.border-layout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+}
+
+.border-layout .top {
+  width: 100%;
+}
+
+.border-layout .middle {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.border-layout .middle .side {
+}
+
+.border-layout .middle .center {
+  vertical-align: middle;
+  flex-grow: 1;
+}
+
+.border-layout .bottom {
+    width: 100%;
+}

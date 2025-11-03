@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Jamn Microservice Example to build lightweight, browser enabled All-in-One Apps with Java-SE, plain Html and JavaScript.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Jamn Workbench</title>
+
+  <link rel="manifest" href="/workbench.webmanifest">
+
+  <!-- external Icon-Font CDN links -->
+  <!-- bootstrap - main -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- google material - experimental -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+  <!-- app main StyleSheet -->
+  <link rel="stylesheet" href="css/workbench.css">
+
+  <script type="importmap">
+    {
+        "imports": {
+            "workbench": "/jsmod/workbench.mjs"
+        }
+    }
+  </script>
+
+  <!-- app js module initialization -->
+  <script type="module">
+    import { anchorAt as installWorkbenchAt } from 'workbench';
+    installWorkbenchAt("approot").build();
+  </script>
+
+</head>
+
+<body>
+
+  <!-- approot -->
+  <div id="approot" class="site-container">
+
+    <!-- titlebar -->
+    <div id="app-titlebar"></div>
+    <!-- end titlebar -->
+
+    <!-- main container -->
+    <div id="app-main-container">
+
+      <!-- sidebar -->
+      <div id="app-sidebar"></div>
+      <!-- end sidebar -->
+
+      <div id="app-sidebar-splitter" class="vsplitter" style="height: 100%; border-left: 1px solid var(--border-gray);">
+      </div>
+
+      <!-- workarea -->
+      <div id="app-workarea"></div>
+      <!-- end workarea -->
+
+    </div>
+    <!-- end main container -->
+
+    <!-- statusline -->
+    <div id="app-statusline"></div>
+    <!-- end statusline -->
+
+    <!-- intro text box -->
+    <div id="app-intro-overlay" class="overlay-container intro-container">
+      <div id="app-intro-content" class="intro-content">
+      </div>
+    </div>
+    <!-- end intro text box -->
+
+    <!-- view dialog container -->
+    <dialog id="app-view-dialog" class="view-dialog-container"></dialog>
+    <!-- end view dialog -->
+
+    <!-- standard dialog container -->
+    <dialog id="app-standard-dialog" class="standard-dialog-container"></dialog>
+    <!-- end standard dialog -->
+
+  </div>
+  <!-- end approot -->
+
+</body>
+
+</html>

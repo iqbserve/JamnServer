@@ -1,0 +1,2 @@
+let val = null;
+val

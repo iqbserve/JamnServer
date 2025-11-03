@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.isa.jps</groupId>
+	<artifactId>org.isa.jps.JamnPersonalServerApp</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>Jamn Personal Server App</name>
+	<description><![CDATA[A small scaffold for building individual All-in-One apps and tools. It combines the Java SE based Jamn Micro Server with its provider, a backend JavaScript Engine and a frontend Web GUI base in one easy to use startup.]]>
+	</description>
+	<url>https://github.com/integrating-architecture/JamnServer</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<maven.build.timestamp.format>dd-MM-yyyy HH:mm:ss</maven.build.timestamp.format>
+	    <build.timestamp>${maven.build.timestamp}</build.timestamp>
+		<do.distribution>true</do.distribution>
+		<author>Andreas Weidinger - IQB Services</author>
+		<authorUrl>https://iqbserve.de/</authorUrl>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.isa.ipc</groupId>
+			<artifactId>org.isa.ipc.JamnServer</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.isa.ipc</groupId>
+			<artifactId>org.isa.ipc.JamnWebContentProvider</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.isa.ipc</groupId>
+			<artifactId>org.isa.ipc.JamnWebServiceProvider</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.isa.ipc</groupId>
+			<artifactId>org.isa.ipc.JamnWebSocketProvider</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.isa.jps</groupId>
+			<artifactId>org.isa.jps.JavaScriptProvider</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- or a tool of your choice -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.17.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.10.2</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.3.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<configuration>
+							<target if="${do.distribution}">
+								<copy
+									file="target/${project.artifactId}-${project.version}.jar"
+									tofile="dist/jps.home/libs/${project.artifactId}-${project.version}.jar" />
+								<copy todir="dist/jps.home/http">
+									<fileset dir="http" includes="**/*" />
+								</copy>
+								<copy todir="dist/jps.home/scripts">
+									<fileset dir="scripts" excludes="junit_tests/**" includes="**/*" />
+								</copy>
+								<copy todir="dist/jps.home/libs">
+									<fileset dir="libs" includes="*.cmd" />
+								</copy>
+								<copy todir="dist/jps.home/extensions">
+									<fileset dir="extensions" excludes="README.md" includes="**/*" />
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.7.1</version>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+					<archive>
+						<manifest>
+							<mainClass>org.isa.jps.JamnPersonalServerApp</mainClass>
+						</manifest>
+					</archive>
+					<descriptors>
+						<descriptor>maven-assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance
+						merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+		</plugins>
+
+		<!-- create a build.info.properties file -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>   
+
+	</build>
+
+</project>

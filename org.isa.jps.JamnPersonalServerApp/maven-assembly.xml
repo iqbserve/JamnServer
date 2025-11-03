@@ -1,0 +1,55 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.2.0 https://maven.apache.org/xsd/assembly-2.2.0.xsd">
+
+	<id>jar-with-dependencies</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>/</outputDirectory>
+			<useProjectArtifact>true</useProjectArtifact>
+			<unpack>true</unpack>
+			<scope>runtime</scope>
+
+			<excludes>
+				<exclude>com.fasterxml.jackson.core</exclude>
+				<exclude>org.graalvm.js</exclude>
+			</excludes>
+
+			<unpackOptions>
+				<excludes>
+					<exclude>**/logging.properties*</exclude>
+					<exclude>**/sample/**</exclude>
+					<exclude>**/maven/**</exclude>
+					<exclude>**/graalvm/**</exclude>
+					<exclude>**/com/**</exclude>
+					<exclude>**/nanohttpd/**</exclude> <!-- comes with graal js debug -->
+					<exclude>**/LICENSE.txt/**</exclude>
+					<exclude>module-info*</exclude>
+					<exclude>blank-server.html</exclude>
+				</excludes>
+			</unpackOptions>
+		</dependencySet>
+	</dependencySets>
+
+	<fileSets>
+		<fileSet>
+			<directory>${basedir}</directory>
+			<includes>
+				<include>Licence.txt</include>
+				<include>README.md</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${basedir}</directory>
+			<includes>
+				<include>pom.xml</include>
+				<include>maven-assembly.xml</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+</assembly>
