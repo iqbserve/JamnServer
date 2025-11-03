@@ -16,7 +16,7 @@ import {echo, sh, workspacePath, isOnUnix} from "tools.mjs";
  * see also: \http\jsmod\sidebar-content.mjs
  */
 let projectName = "JamnServer"
-let projectGitUrl = `https://github.com/integrating-architecture/${projectName}.git`;
+let projectGitUrl = `https://github.com/iqbserve/${projectName}.git`;
 let workspace = workspacePath();
 let wsLocalMvnRepo = workspacePath(".m2ws");
 

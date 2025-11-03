@@ -12,7 +12,7 @@
 
 	<name>JamnServer Project</name>
 	<description>Just Another Micro Node Server.</description>
-	<url>https://github.com/integrating-architecture/JamnServer</url>
+	<url>https://github.com/iqbserve/JamnServer</url>
 
 	<properties>
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

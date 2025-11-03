@@ -33,7 +33,7 @@ public class FileEnricherValueProvider implements JamnServer.ExprString.ValuePro
                         .setDescription(
                                 "A simple Web Content Provider sample app.")
                         .addLink("app.scm",
-                                "https://github.com/integrating-architecture/JamnServer/blob/master/org.isa.ipc.JamnWebContentProvider");
+                                "https://github.com/iqbserve/JamnServer/blob/master/org.isa.ipc.JamnWebContentProvider");
                 return JSON.writeValueAsString(lInfo);
             }
         } catch (Exception e) {

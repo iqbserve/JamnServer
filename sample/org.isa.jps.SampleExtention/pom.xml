@@ -11,7 +11,7 @@
 
 	<name>org.isa.jps.SampleExtension</name>
 	<description>A sample Extension providing Database Connection Informations.</description>
-	<url>https://github.com/integrating-architecture/JamnServer</url>
+	<url>https://github.com/iqbserve/JamnServer</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

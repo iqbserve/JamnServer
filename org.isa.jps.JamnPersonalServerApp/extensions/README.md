@@ -12,7 +12,7 @@ Java extensions are included as simple JSON description files.<br>In both cases,
 
 Extension programs can be called from the JPS command line or from the WebGUI command view.<br>In addition, Java extensions can provide any methods as web services. JavaScript or shell programs can then also be called via this route.
 
-Example of a minimum Java extension file e.g. [Sample Command Extension](https://github.com/integrating-architecture/JamnServer/blob/master/sample/org.isa.jps.SampleCommand/src/main/java/org/isa/jps/SampleCommand.java)
+Example of a minimum Java extension file e.g. [Sample Command Extension](https://github.com/iqbserve/JamnServer/blob/master/sample/org.isa.jps.SampleCommand/src/main/java/org/isa/jps/SampleCommand.java)
 
 ```json
 {

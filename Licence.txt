@@ -1,5 +1,5 @@
 Affects all source and binary code from
-    https://github.com/integrating-architecture/JamnServer
+    https://github.com/iqbserve/JamnServer
 	
 The code is NOT subject to any license conditions.
 
