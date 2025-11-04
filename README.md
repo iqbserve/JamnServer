@@ -37,7 +37,8 @@ Workbench App <a href="https://wbapp.iqbserve.de" target="_blank">Demo</a>
 
 <br></br>
 ## Disclamer  
-Affects all source and binary code from
+Affects all source and binary code from: 
+    https://github.com/iqbserve/JamnServer
 
 	
 Use and redistribution in source and binary forms,
