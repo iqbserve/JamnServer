@@ -34,7 +34,7 @@
     <script>
         // Create a WebSocket instance
         // and connect to the server
-        socket = null;
+        let socket = null;
 
         function connect() {
             if (socket == null || socket.readyState == WebSocket.CLOSED) {
