@@ -62,7 +62,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * The JamnPersonalServerApp is an example of how to
  * assemble a jamn server with providers 
  * and define an environment of folders and configurations
- * that can serve as a startup/example for individual use.
+ * that can serve as a startup/example for individual use cases.
  * 
  * The goal is an individual, open tool with the ability
  * to create local, network and browser enabled functions and services
